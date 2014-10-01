@@ -12,12 +12,12 @@ define [
 
 
     onTextUpdate: ->
-      @result.setText @processPlaceholders @content.getText()
-
-
-    processPlaceholders: (text) ->
       values = @result.getGlobalValues()
+      @content.useGlobals values
+      @result.setText @processPlaceholders @content.getText(), values
 
+
+    processPlaceholders: (text, values) ->
       if values.gender?
         text = text.replace /\. \[Name\]/g, if values.gender is "male" then ". He" else ". She"
         text = text.replace /\[He\/She\]/g, if values.gender is "male" then "He" else "She"
@@ -33,5 +33,7 @@ define [
 
       if values.name?.length > 0
         text = text.replace /\[Name\]/g, values.name
+
+      text = text.replace /\ a\ (a|e|i|o|u)/g, " an $1"
 
       return $.trim text

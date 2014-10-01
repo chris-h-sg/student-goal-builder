@@ -1,35 +1,7 @@
 define [
+  "cs!ContentLeaf"
   "text!html/content-category.html"
-  "text!html/content-item.html"
-], (catTemplate, itemTemplate) ->
-
-  class ContentLeaf extends Marionette.ItemView
-    tagName: "li"
-    className: "list-group-item leaf"
-    template: itemTemplate
-
-    ui:
-      checkbox: "input"
-
-    events:
-      "click span": ->
-        @ui.checkbox.prop "checked", !@ui.checkbox.is(":checked")
-        @updateText()
-      "click input": "updateText"
-
-
-    updateText: ->
-      @trigger "updatetext"
-
-
-    getText: ->
-      return if @ui.checkbox.is(":checked") then @model.get "text" else ""
-
-
-    clearAll: ->
-      @ui.checkbox.prop "checked", false
-
-
+], (ContentLeaf, template) ->
 
   class BranchMixin
     getChildView: (item) ->
@@ -58,12 +30,17 @@ define [
         child.clearAll()
 
 
+    useGlobals: (globals) ->
+      @children.each (child) ->
+        child.useGlobals globals
+
+
 
   class ContentChild extends Marionette.CompositeView
     tagName: "div"
     className: -> if @isAccordion() then "panel panel-default list-group-item" else "list-group-item"
     id: -> @model.get "short"
-    template: catTemplate
+    template: template
     childViewContainer: ".children"
 
     ui:

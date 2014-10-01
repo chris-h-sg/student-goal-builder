@@ -8,8 +8,8 @@
                     {
                         "text": "General",
                         "content": [
-                            { "text": "[Name] was an avid reader." },
-                            { "text": "[Name] was an enthusiastic reader." }
+                            { "text": "[Name] was a [avid/regular/boring] reader." },
+                            { "text": "[Name] was a [adjective] ___." }
                         ]
                     },
                     {
