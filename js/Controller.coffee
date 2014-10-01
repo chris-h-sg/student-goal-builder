@@ -19,7 +19,7 @@ define [
 
     processPlaceholders: (text, values) ->
       if values.gender?
-        text = text.replace /\. \[Name\]/g, if values.gender is "male" then ". He" else ". She"
+        text = text.replace /\. \[Name\]/ig, if values.gender is "male" then ". He" else ". She"
         text = text.replace /\[He\/She\]/g, if values.gender is "male" then "He" else "She"
         text = text.replace /\[he\/she\]/g, if values.gender is "male" then "he" else "she"
         text = text.replace /\[His\/Her\]/g, if values.gender is "male" then "His" else "Her"
@@ -32,7 +32,7 @@ define [
         text = text.replace /\[himself\/herself\]/g, if values.gender is "male" then "himself" else "herself"
 
       if values.name?.length > 0
-        text = text.replace /\[Name\]/g, values.name
+        text = text.replace /\[Name\]/ig, values.name
 
       text = text.replace /\ a\ (a|e|i|o|u)/g, " an $1"
 

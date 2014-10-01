@@ -7,6 +7,9 @@ define [
     template: "{{text}}"
     globalName: undefined
 
+    events:
+      "click": -> @trigger "toggle"
+
     serializeData: ->
       return text: if @globalName?.length > 0 then @globalName else @model.get "text"
 
@@ -161,7 +164,7 @@ define [
       model = options.model
       switch model.get "mode"
         when "bracket"
-          if model.get("text") is "[Name]" then return new NameView options
+          if model.get("text").toLowerCase() is "[name]" then return new NameView options
           if model.get("text").indexOf("/") > 0 then return new SelectView options
           return new EnterTextView options
         when "field" then return new EnterTextView options

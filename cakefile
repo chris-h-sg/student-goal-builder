@@ -46,3 +46,24 @@ task 'merge', merge = (callback) ->
 
 task 'build', ->
   minify -> merge()
+
+
+task 'parse', ->
+  console.log "parsing..."
+  raw = fs.readFileSync('raw-data.txt').toString().split "\r\n"
+  json = []
+  lastCategory = undefined
+  for row in raw when row.length > 0
+    if row.match /^\d+\./
+      numbers = row.split "."
+      current = json
+      done = false
+      for number in numbers when not done and parseInt(number) > 0
+        if current[parseInt(number) - 1]?
+          current = current[parseInt(number) - 1].content
+        else
+          lastCategory = current[parseInt(number) - 1] = text: numbers[numbers.length - 1], content: []
+          done = true
+    else
+      lastCategory.content.push text: row
+  fs.writeFileSync 'data/texts.json', JSON.stringify json, encoding: 'UTF8'
