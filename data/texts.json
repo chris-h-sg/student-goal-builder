@@ -1,0 +1,73 @@
+[
+    {
+        "text": "Language Arts",
+        "content": [
+            {
+                "text": "Reading",
+                "content": [
+                    {
+                        "text": "General",
+                        "content": [
+                            { "text": "[Name] was an avid reader." },
+                            { "text": "[Name] was an enthusiastic reader." }
+                        ]
+                    },
+                    {
+                        "text": "Thinking within the Text - Solving Words",
+                        "content": []
+                    },
+                    {
+                        "text": "Thinking Within the Text – Monitoring and Correcting",
+                        "content": []
+                    },
+                    {
+                        "text": "Thinking Within the Text – Fluency",
+                        "content": []
+                    }
+                ]
+            },
+            {
+                "text": "Writing",
+                "content": [
+                    {
+                        "text": "General",
+                        "content": []
+                    },
+                    {
+                        "text": "Voice",
+                        "content": []
+                    },
+                    {
+                        "text": "Ideas",
+                        "content": []
+                    },
+                    {
+                        "text": "Organization",
+                        "content": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "text": "Math",
+        "content": [
+            {
+                "text": "General Statements",
+                "content": []
+            },
+            {
+                "text": "General Statements - Participation",
+                "content": []
+            },
+            {
+                "text": "Numeracy",
+                "content": []
+            },
+            {
+                "text": "Pattern and Function",
+                "content": []
+            }
+        ]
+    }
+]

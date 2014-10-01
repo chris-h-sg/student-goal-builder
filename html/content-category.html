@@ -1,0 +1,8 @@
+{{#if isAccordion}}
+    <a class="panel-heading panel-title" data-toggle="collapse" data-parent="#{{parentId}}" href="#{{short}}-children">{{text}}</a>
+    <div class="children panel-collapse {{#if isExpanded}}in{{/if}} collapse list-group" id="{{short}}-children"></div>
+{{else}}
+    <span class="category-title">{{text}}</span>
+    <div class="children list-group"></div>
+{{/if}}
+
