@@ -20,8 +20,10 @@ define [
     getText: ->
       text = ""
       @children.each (child) ->
-        if text.length > 0 then text += " "
-        text += child.getText()
+        childText = child.getText()
+        if childText?.length > 0
+          if text.length > 0 then text += " "
+          text += childText
       return $.trim text
 
 
