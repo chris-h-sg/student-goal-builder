@@ -1,3 +1,8 @@
+body {
+    padding-top: 70px;
+    padding-bottom: 20px;
+}
+
 #content {
     width: 60%;
     display: inline-block;
@@ -36,6 +41,9 @@
     cursor: pointer;
 }
 
+#result #student-name {
+    width: 160px;
+}
 #result > span {
     margin-right: 2em;
 }

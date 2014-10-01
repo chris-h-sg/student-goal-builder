@@ -162,10 +162,12 @@ define [
 
     childView: (options) ->
       model = options.model
+      text = model.get "text"
       switch model.get "mode"
         when "bracket"
-          if model.get("text").toLowerCase() is "[name]" then return new NameView options
-          if model.get("text").indexOf("/") > 0 then return new SelectView options
+          if text.substring(1, text.length - 1).toLowerCase() in [ "he/she", "his/her", "her/his", "him/her", "himself/herself" ] then return new TextView options
+          if text.toLowerCase() is "[name]" then return new NameView options
+          if text.indexOf("/") > 0 then return new SelectView options
           return new EnterTextView options
         when "field" then return new EnterTextView options
       return new TextView options

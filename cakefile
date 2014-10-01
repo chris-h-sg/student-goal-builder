@@ -62,8 +62,8 @@ task 'parse', ->
         if current[parseInt(number) - 1]?
           current = current[parseInt(number) - 1].content
         else
-          lastCategory = current[parseInt(number) - 1] = text: numbers[numbers.length - 1], content: []
+          lastCategory = current[parseInt(number) - 1] = text: numbers[numbers.length - 1].trim(), content: []
           done = true
     else
-      lastCategory.content.push text: row
+      lastCategory.content.push text: row.trim()
   fs.writeFileSync 'data/texts.json', JSON.stringify json, encoding: 'UTF8'
