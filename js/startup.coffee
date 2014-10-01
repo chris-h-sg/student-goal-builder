@@ -1,5 +1,7 @@
 define [
   "lib/handlebars.min"
+  "lib/marionette"
+  "lib/bootstrap.min"
   "cs!MainLayout"
   "cs!Categories"
   "cs!TopNavView"
@@ -7,7 +9,7 @@ define [
   "cs!ResultView"
   "cs!Controller"
   "text!../data/texts.json"
-], (Handlebars, MainLayout, Categories, TopNavView, ContentView, ResultView, Controller, texts) ->
+], (Handlebars, Marionette, Bootstrap, MainLayout, Categories, TopNavView, ContentView, ResultView, Controller, texts) ->
   # Each block below does a specific configuration change. The application is started at the bottom.
 
 

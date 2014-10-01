@@ -1,0 +1,48 @@
+r = require './lib/r.js'
+fs = require 'fs'
+
+task 'minify', minify = (callback) ->
+  console.log "minifying..."
+  options = {
+    baseUrl: "./js"
+    name: "main"
+    out: "build/script.js"
+    include: "../lib/require"
+    paths: {
+      'lib': '../lib',
+      'html': '../html',
+      text: '../lib/text',
+      cs: '../lib/cs',
+      'coffee-script': '../lib/coffee-script',
+      'backbone': '../lib/backbone',
+      'jquery': '../lib/jquery',
+      'underscore': '../lib/lodash'
+    },
+    shim: {
+      'lib/bootstrap.min.js': ['jquery'],
+    }
+  }
+  r.optimize options, ->
+    cssOptions = {
+      cssIn: "css/style.css"
+      out: "build/style.css"
+      optimizeCss: "standard"
+    }
+    r.optimize cssOptions, -> callback?()
+
+
+task 'merge', merge = (callback) ->
+  console.log "merging..."
+  raw = fs.readFileSync('index-raw.html').toString()
+  bootstrapCss = fs.readFileSync('css/bootstrap.min.css').toString()
+  localCss = fs.readFileSync('build/style.css').toString()
+  script = fs.readFileSync('build/script.js').toString()
+  out = raw.replace /<style><\/style>/, "<style>#{bootstrapCss}#{localCss}</style>"
+  parts = out.split "<script></script>"
+  out = parts[0] + "<script>" + script + "</script>" + parts[1]
+  fs.writeFileSync 'build/report-builder.html', out, encoding: 'UTF8'
+  callback?()
+
+
+task 'build', ->
+  minify -> merge()
