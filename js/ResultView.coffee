@@ -1,6 +1,7 @@
 define [
   "text!html/result.html"
-], (template) ->
+  "lib/countable"
+], (template, Countable) ->
 
   class ResultView extends Marionette.ItemView
     template: template
@@ -10,7 +11,8 @@ define [
       name: "#student-name"
       gender: "[name=gender]"
       textarea: "textarea"
-      charCount: ".char-count"
+      charCount: "#chars .count"
+      wordCount: "#words .count"
       clear: ".clear"
 
 
@@ -39,4 +41,6 @@ define [
 
     setText: (text) ->
       @ui.textarea.val text
-      @ui.charCount.text text.length
+      Countable.once @ui.textarea[0], (counter) =>
+        @ui.charCount.text counter.all
+        @ui.wordCount.text counter.words

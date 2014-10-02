@@ -5,11 +5,11 @@ define [
   "cs!MainLayout"
   "cs!Categories"
   "cs!TopNavView"
-  "cs!ContentView"
+  "cs!ContentTree"
   "cs!ResultView"
   "cs!Controller"
   "text!../data/texts.json"
-], (Handlebars, Marionette, Bootstrap, MainLayout, Categories, TopNavView, ContentView, ResultView, Controller, texts) ->
+], (Handlebars, Marionette, Bootstrap, MainLayout, Categories, TopNavView, ContentTree, ResultView, Controller, texts) ->
   # Each block below does a specific configuration change. The application is started at the bottom.
 
 
@@ -46,7 +46,7 @@ define [
     @mainRegion.show layout
 
     cats = new Categories JSON.parse(texts), parse: true
-    content = new ContentView collection: cats
+    content = new ContentTree collection: cats
     result = new ResultView()
 
     layout.top.show new TopNavView collection: cats

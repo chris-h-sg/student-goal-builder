@@ -107,10 +107,15 @@ define [
 
     events:
       "click input": "updateText"
+      "click": (e) ->
+        if e.target is @el
+          @ui.checkbox.prop "checked", !@hasChecked()
+          @updateText()
+
 
     childEvents:
       "toggle": ->
-        @ui.checkbox.prop "checked", !@ui.checkbox.is(":checked")
+        @ui.checkbox.prop "checked", !@hasChecked()
         @updateText()
       "check": ->
         @ui.checkbox.prop "checked", true
@@ -165,7 +170,7 @@ define [
       text = model.get "text"
       switch model.get "mode"
         when "bracket"
-          if text.substring(1, text.length - 1).toLowerCase() in [ "he/she", "his/her", "her/his", "him/her", "himself/herself" ] then return new TextView options
+          if text.substring(1, text.length - 1).toLowerCase() in [ "he/she", "his/her", "her/his", "him/her", "himself/herself", "herself/himself" ] then return new TextView options
           if text.toLowerCase() is "[name]" then return new NameView options
           if text.indexOf("/") > 0 then return new SelectView options
           return new EnterTextView options
@@ -174,19 +179,25 @@ define [
 
 
     getText: ->
-      if !@ui.checkbox.is(":checked") then return ""
+      if !@hasChecked() then return ""
       text = ""
       @children.each (child) ->
         text += child.getText()
       return $.trim text
 
 
+    hasChecked: ->
+      return @ui.checkbox.is(":checked")
+
+
     updateText: ->
+      if @hasChecked() then @$el.addClass "list-group-item-info" else @$el.removeClass "list-group-item-info"
       @trigger "updatetext"
 
 
     clearAll: ->
       @ui.checkbox.prop "checked", false
+      @$el.removeClass "list-group-item-info"
       @children.each (child) ->
         child.clearAll()
 

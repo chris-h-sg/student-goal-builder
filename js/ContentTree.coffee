@@ -9,7 +9,7 @@ define [
 
 
     childEvents:
-      "updatetext": -> @trigger "updatetext"
+      "updatetext": -> @textUpdated?(); @trigger "updatetext"
 
 
     childViewOptions: (model, index) ->
@@ -28,8 +28,13 @@ define [
 
 
     clearAll: ->
+      @$el.removeClass "panel-info"
       @children.each (child) ->
         child.clearAll()
+
+
+    hasChecked: ->
+      @children.some (child) -> child.hasChecked()
 
 
     useGlobals: (globals) ->
@@ -71,8 +76,12 @@ define [
       if 0 is @model.get "level" then @children.first()?.expand()
 
 
+    textUpdated: ->
+      if @hasChecked() then @$el.addClass "panel-info" else @$el.removeClass "panel-info"
 
-  class ContentView extends Marionette.CollectionView
+
+
+  class ContentTree extends Marionette.CollectionView
     tagName: "div"
     id: "all-items"
     isExpanded: true
@@ -80,7 +89,7 @@ define [
 
 
   _.extend ContentChild::, BranchMixin::
-  _.extend ContentView::, BranchMixin::
+  _.extend ContentTree::, BranchMixin::
 
 
-  return ContentView
+  return ContentTree

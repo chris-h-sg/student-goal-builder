@@ -6,6 +6,6 @@ define [
     template: template
 
     regions:
-      top: "#top-nav"
+      top: "#top-nav .dynamic"
       content: "#content"
       result: "#result"
