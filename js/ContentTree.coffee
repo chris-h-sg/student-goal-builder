@@ -1,11 +1,12 @@
 define [
+  "cs!ContentExcluded"
   "cs!ContentLeaf"
   "text!html/content-category.html"
-], (ContentLeaf, template) ->
+], (ContentExcluded, ContentLeaf, template) ->
 
   class BranchMixin
     getChildView: (item) ->
-      return if item.has "content" then ContentChild else ContentLeaf
+      return if item.has "content" then ContentChild else if item.get("excluded") then ContentExcluded else ContentLeaf
 
 
     childEvents:
@@ -51,7 +52,16 @@ define [
     childViewContainer: ".children"
 
     ui:
-      container: ".collapse"
+      title: "> .panel-title"
+      container: "> .collapse"
+
+
+    events:
+      "shown.bs.collapse @ui.container": ->
+        top = @ui.title.offset().top
+        if top < document.body.scrollTop
+          $('body').animate { scrollTop: top - $("#top-nav").height() - 5 }, 0
+        return false
 
 
     initialize: (options) ->

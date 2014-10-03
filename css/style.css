@@ -35,6 +35,9 @@ body {
     border: 0;
     cursor: pointer;
 }
+.list-group-item.list-group-item-warning {
+    border: 0;
+}
 .list-group-item.leaf:hover {
     background-color: #f5f5f5;
 }
