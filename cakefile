@@ -90,13 +90,13 @@ task 'parse', parse = (free = false) ->
           lastCategory = current[parseInt(number) - 1] =
             text: textContent rawText
             content: []
-            hasExcluded: false
+            excluded: 0
             mayHaveChildren: isIncluded(rawText) or ((parent?.mayHaveChildren ? true) and not isExcluded rawText)
           done = true
     else if isIncluded(row) or (lastCategory.mayHaveChildren and not isExcluded row)
       lastCategory.content.push text: textContent row
     else
-      lastCategory.hasExcluded = true
+      lastCategory.excluded++
   fs.writeFileSync 'data/texts.json', JSON.stringify json, encoding: 'UTF8'
 
 task 'parse-free', ->

@@ -5,7 +5,7 @@ define [
 
     parse: (data) ->
       if data?.content
-        data.content = new Categories data.content, parse: true, level: (data.level ? 0) + 1, hasExcluded: data.hasExcluded
+        data.content = new Categories data.content, parse: true, level: (data.level ? 0) + 1, excluded: data.excluded
       data.short ?= data.text.toLowerCase().replace /[\s|\/]+/g, '-'
       return data
 
@@ -21,6 +21,6 @@ define [
 
 
     parse: (data, options) ->
-      if options.hasExcluded
-        data.push text: 'EXCLUDED', excluded: true
+      if options.excluded > 0
+        data.push text: 'EXCLUDED', excluded: options.excluded
       return data

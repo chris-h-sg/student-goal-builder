@@ -6,7 +6,7 @@ define [
 
   class BranchMixin
     getChildView: (item) ->
-      return if item.has "content" then ContentChild else if item.get("excluded") then ContentExcluded else ContentLeaf
+      return if item.has "content" then ContentChild else if item.get("excluded") > 0 then ContentExcluded else ContentLeaf
 
 
     childEvents:

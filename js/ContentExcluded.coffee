@@ -7,6 +7,12 @@ define [
     className: "list-group-item list-group-item-warning"
     template: template
 
+    serializeData: ->
+      data = super
+      data.singular = data.excluded is 1
+      return data
+
+
     getText: -> ""
     hasChecked: -> false
     updateText: ->
