@@ -13,8 +13,7 @@ require({
     shim: {
         'lib/bootstrap.min.js': ['jquery'],
         'cs!startup': [
-            'lib/marionette',
-            'lib/bootstrap.min.js'
+            'lib/marionette'
         ]
     }
 }, [ 'cs!startup' ]);

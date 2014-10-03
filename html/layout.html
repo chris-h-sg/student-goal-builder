@@ -1,10 +1,11 @@
 <nav id="top-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="nav navbar-nav navbar-left">
-            <div class="navbar-text h4">Student Report Builder</div>
-        </div>
+    <div class="nav navbar-nav navbar-left">
+        <div class="navbar-text h4">Student Report Builder</div>
+    </div>
     <div class="container-fluid">
         <div class="nav navbar-nav navbar-left dynamic"></div>
         <ul class="nav navbar-nav navbar-right">
+            <li><a data-toggle="modal" data-target="#help" href="#">How to Use</a></li>
             <li>
                 <div class="navbar-text">
                     <span>&#169;</span>
@@ -15,3 +16,71 @@
 </nav>
 <section id="content"></section>
 <section id="result"></section>
+<div class="modal fade" id="help" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">How to Use</h4>
+            </div>
+            <div class="modal-body">
+                <strong>Welcome to the report writer!</strong>
+
+                <p>
+                    I developed this tool to make report writing easier and less time-consuming, while still flexible
+                    enough to create personal, individualized comments. The comments are closely tied to standards and
+                    expectations for children in the first grade, but should be useful for grades K-2. They are
+                    organized by subject and, in some cases, subtopics.
+                </p>
+
+                <p>
+                    When I'm writing reports, I generally consider the following points and use them in writing and
+                    organizing the comments:
+                </p>
+                <ul>
+                    <li>What is the student's general attitude towards learning the subject?</li>
+                    <li>In general, how well are they meeting grade-level expectations? Do they need support, or exceed
+                        expectations?
+                    </li>
+                    <li>Which standards are they meeting and/or developing?</li>
+                    <li>What goals have I identified for future learning?</li>
+                    <li>What supporting details and anecdotal evidence can I provide?</li>
+                </ul>
+
+                <p>
+                    The source material for these comments comes from narrative reports I've written in the past, Common
+                    Core and AERO standards, IB PYP language, and professional literature such as Fountas and Pinnell.
+                </p>
+
+                <strong>How to use:</strong>
+
+                <ul>
+                    <li>On the right side, enter the student's name and gender. The student's name will appear once in
+                        each paragraph, and thereafter the correct gender will be automatically applied.
+                    </li>
+                    <li>
+                        Click the comments that apply for each subject area. A paragraph will be generated in the box on
+                        the right. If you decide not to use a comment you already selected, click on the box again and
+                        it will be deleted.
+                    </li>
+                    <li>
+                        The character and word counts show how many characters and words you've used.
+                    </li>
+                    <li>
+                        When you're ready, cut and paste the paragraph into your report document.
+                    </li>
+                    <li>
+                        You may want to edit some of the comments after you cut and paste them, so that the writing is
+                        fluid and paints a picture of a specific child. It was important to me that the comments could
+                        be edited to provide supporting details, and that is why some sentences contain blanks.
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Ok, got it !</button>
+            </div>
+        </div>
+    </div>
+</div>

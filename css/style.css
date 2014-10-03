@@ -105,3 +105,7 @@ body {
 #result label {
     font-weight: normal;
 }
+
+[data-toggle=modal]:focus{
+    outline:none;
+}
