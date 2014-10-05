@@ -78,7 +78,8 @@ define [
     childView: SelectItem
 
     events:
-      "click": -> @trigger "check"
+      "mousedown": -> @trigger "check"
+      "change": -> @trigger "check"
 
 
     initialize: ->

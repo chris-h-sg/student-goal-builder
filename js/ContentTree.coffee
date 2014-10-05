@@ -59,8 +59,8 @@ define [
     events:
       "shown.bs.collapse @ui.container": ->
         top = @ui.title.offset().top
-        if top < document.body.scrollTop
-          $('body').animate { scrollTop: top - $("#top-nav").height() - 5 }, 0
+        if top < $(document).scrollTop()
+          $(document).scrollTop top - $("#top-nav").height() - 5
         return false
 
 
