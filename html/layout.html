@@ -1,6 +1,6 @@
 <nav id="top-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="nav navbar-nav navbar-left">
-        <div class="navbar-text h4">Student Report Builder</div>
+        <div class="navbar-brand">Student Report Writer</div>
     </div>
     <div class="container-fluid">
         <div class="nav navbar-nav navbar-left dynamic"></div>
@@ -23,60 +23,101 @@
                 <button type="button" class="close" data-dismiss="modal">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title">How to Use</h4>
+                <h3 class="modal-title">How to Use</h3>
             </div>
             <div class="modal-body">
-                <strong>Welcome to the report writer!</strong>
+                <section>
+                    <h4>Welcome to the Report Writer!</h4>
 
-                <p>
-                    I developed this tool to make report writing easier and less time-consuming, while still flexible
-                    enough to create personal, individualized comments. The comments are closely tied to standards and
-                    expectations for children in the first grade, but should be useful for grades K-2. They are
-                    organized by subject and, in some cases, subtopics.
-                </p>
+                    <p>
+                        I developed this tool to make report writing easier and less time-consuming, while still
+                        flexible enough to create personal, individualized comments. The comments are closely tied to
+                        standards and expectations for children in grades K-2. They are organized by subject.
+                    </p>
 
-                <p>
-                    When I'm writing reports, I generally consider the following points and use them in writing and
-                    organizing the comments:
-                </p>
-                <ul>
-                    <li>What is the student's general attitude towards learning the subject?</li>
-                    <li>In general, how well are they meeting grade-level expectations? Do they need support, or exceed
-                        expectations?
-                    </li>
-                    <li>Which standards are they meeting and/or developing?</li>
-                    <li>What goals have I identified for future learning?</li>
-                    <li>What supporting details and anecdotal evidence can I provide?</li>
-                </ul>
+                    <p>
+                        The inspiration for these comments comes from the Common Core, AERO Standards, the IB Primary
+                        Years Program, 6+1 Traits, the work of Fountas and Pinnell, as well as reports I’ve written in the past.
+                    </p>
+                </section>
 
-                <p>
-                    The source material for these comments comes from narrative reports I've written in the past, Common
-                    Core and AERO standards, IB PYP language, and professional literature such as Fountas and Pinnell.
-                </p>
+                <section>
+                    <h4>How to use:</h4>
 
-                <strong>How to use:</strong>
+                    <ul class="form-inline">
+                        <li>
+                            <div>On the right side, enter the student's name and gender.</div>
+                            <div class="panel panel-default has-background">
+                                <span>
+                                    <label for="student-name">Student Name</label><input type="text"
+                                                                                         class="form-control"
+                                                                                         id="student-name"/>
+                                </span>
+                                <span class="radio">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="gender" value="male"/>
+                                        Male
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="gender" value="female"/>
+                                        Female
+                                    </label>
+                                </span>
+                            </div>
 
-                <ul>
-                    <li>On the right side, enter the student's name and gender. The student's name will appear once in
-                        each paragraph, and thereafter the correct gender will be automatically applied.
-                    </li>
-                    <li>
-                        Click the comments that apply for each subject area. A paragraph will be generated in the box on
-                        the right. If you decide not to use a comment you already selected, click on the box again and
-                        it will be deleted.
-                    </li>
-                    <li>
-                        The character and word counts show how many characters and words you've used.
-                    </li>
-                    <li>
-                        When you're ready, cut and paste the paragraph into your report document.
-                    </li>
-                    <li>
-                        You may want to edit some of the comments after you cut and paste them, so that the writing is
-                        fluid and paints a picture of a specific child. It was important to me that the comments could
-                        be edited to provide supporting details, and that is why some sentences contain blanks.
-                    </li>
-                </ul>
+                            <div>
+                                This name will always appear in the first sentence. Thereafter, if possible the correct gender will be
+                                automatically applied.
+                            </div>
+                        </li>
+                        <li>
+                            <div>Select comments that apply for each subject area. Open subject areas by clicking on
+                                them.
+                            </div>
+
+                            <div class="panel panel-default list-group-item">
+                                <a class="panel-heading panel-title">General statements</a>
+                                <ul class="children panel-collapse in collapse list-group"
+                                    id="general-statements-children">
+                                    <li class="list-group-item leaf"><input type="checkbox">
+                                        <span class="text-item"><span>It has been a real pleasure working with </span><span>[Name]</span><span> this </span><select>
+                                            <option>term</option>
+                                            <option>quarter</option>
+                                            <option>semester</option>
+                                            <option>year</option>
+                                        </select><span>.</span></span></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+
+                            <div>A paragraph will be generated in the box on the right.
+                            </div>
+
+                            <textarea class="form-control" readonly="readonly">It has been a pleasure working with Mary this term.</textarea>
+
+                            <div class="controls">
+                                <button class="select-text btn btn-success">Select Text</button>
+                                <button class="clear btn btn-danger">Clear All</button>
+                                <div class="stats">
+                                    <div class="chars"><span class="count">53</span><span class="unit">Characters</span>
+                                    </div>
+                                    <div class="words"><span class="count">10</span><span class="unit">Words</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>If you decide not to use a comment you already selected, click on the comment again and
+                                it will be removed.
+                            </div>
+
+                        </li>
+                        <li>
+                            When you're ready, copy and paste the paragraph into your report document. Adjust comments
+                            as needed so that the writing is fluid and paints a picture of a specific child.
+                        </li>
+                    </ul>
+                </section>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" data-dismiss="modal">Ok, got it !</button>

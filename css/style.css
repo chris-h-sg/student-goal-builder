@@ -1,3 +1,5 @@
+/* Theme colors based on http://colorschemedesigner.com/csd-3.5/#3H21SmB--g0UB */
+
 body {
     padding-top: 70px;
     padding-bottom: 20px;
@@ -39,10 +41,10 @@ body {
     border: 0;
 }
 .list-group-item.leaf:hover {
-    background-color: #f5f5f5;
+    background-color: #FFF3DD;
 }
 .list-group-item.list-group-item-info.leaf:hover {
-    background-color: #c4e3f3;
+    background-color: #FFBF4B;
 }
 .category-title {
     font-size: 16px;
@@ -54,47 +56,44 @@ body {
 #result > span {
     margin-right: 2em;
 }
-#result #controls {
+#result .controls {
     margin-top: 1em;
 }
-#controls #stats {
+.controls .stats {
     display: table;
     margin: 0 auto;
 }
-#controls #stats > * {
+.controls .stats > * {
     display: table-row;
 }
-#controls #stats > * > * {
+.controls .stats > * > * {
      display: table-cell;
  }
-#controls #stats .count {
+.controls .stats .count {
     text-align: right;
     width: 4em;
 }
-#controls #stats .unit {
+.controls .stats .unit {
     text-align: left;
     padding-left: 0.5em;
     padding-right: 1em;
 }
-#controls .select-text {
+.controls .select-text {
     float: left;
 }
-#controls .clear {
+.controls .clear {
     float: right;
 }
-#result input[type=text] {
+#result input[type=text], #help input[type=text] {
     font-family: sans-serif;
     font-size: 100%;
     margin-left: 1em;
 }
-#result input[type=radio] {
+#result input[type=radio], #help input[type=radio] {
     margin-left: 2em;
     margin-right: 0.5em;
 }
-#result textarea {
-    margin-top: 1em;
-    width: 100%;
-    height: 400px;
+#result textarea, #help textarea {
     font-family: sans-serif;
     font-size: 100%;
     line-height: 150%;
@@ -102,10 +101,62 @@ body {
     color: #000;
     cursor: default;
 }
-#result label {
+#result textarea {
+    margin-top: 1em;
+    width: 100%;
+    height: 400px;
+}
+#result label, #help label {
     font-weight: normal;
 }
 
 [data-toggle=modal]:focus{
     outline:none;
 }
+
+#help section {
+    margin-left: 1em;
+}
+#help h4 {
+    margin-left: -0.5em;
+}
+#help section ~ section h4 {
+    margin-top: 24px;
+}
+
+#help .panel, #help textarea, #help .controls {
+    margin: 10px 0;
+    display: inline-block;
+    width: 600px;
+}
+#help textarea {
+    margin-bottom: 0;
+}
+#help .panel.has-background {
+    padding: 6px 20px;
+    border: 0;
+    background-color: #f6f6f6;
+}
+#help .panel.list-group-item {
+    margin: 10px 0;
+    padding: 0;
+}
+#help li {
+    margin-bottom: 12px;
+}
+#help li:last-child {
+    margin: 0;
+}
+
+/*.navbar {*/
+    /*background-color: #d9edf7;*/
+/*}*/
+/*.panel-default>.panel-heading {*/
+    /*background-color: #d9edf7;*/
+/*}*/
+/*.panel-info>.panel-heading {*/
+    /*background-color: #FFC16E;*/
+/*}*/
+/*.list-group-item-info {*/
+    /*background-color: #FFC16E;*/
+/*}*/

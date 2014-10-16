@@ -1,3 +1,4 @@
+VERSION = '1.0'
 r = require './lib/r.js'
 fs = require 'fs'
 
@@ -40,7 +41,8 @@ task 'merge', merge = (free = false) ->
   out = raw.replace /<style><\/style>/, "<style>#{bootstrapCss}#{localCss}</style>"
   parts = out.split "<script></script>"
   out = parts[0] + "<script>" + script + "</script>" + parts[1]
-  fs.writeFileSync "build/report-builder#{if free then '-free' else ''}.html", out, encoding: 'UTF8'
+  fs.writeFileSync "build/report-writer#{if free then '-free' else ''}-#{VERSION}.html", out, encoding: 'UTF8'
+  fs.writeFileSync "build/report-writer#{if free then '-free' else ''}.html", out, encoding: 'UTF8'
 
 
 task 'build', build = (callback) ->
@@ -70,7 +72,7 @@ task 'parse', parse = (free = false) ->
   isExcluded = (text) -> if not free then false else text.indexOf("--ex") > -1
   isIncluded = (text) -> if not free then true else text.indexOf("--in") > -1
 
-  raw = fs.readFileSync('raw-data.txt').toString().split "\r\n"
+  raw = fs.readFileSync('raw-data.txt').toString().replace(/’/g, "'").split "\r\n"
   json = []
   lastCategory = undefined
   for row in raw when row.length > 0

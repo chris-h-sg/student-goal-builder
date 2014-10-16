@@ -11,8 +11,8 @@ define [
       name: "#student-name"
       gender: "[name=gender]"
       textarea: "textarea"
-      charCount: "#chars .count"
-      wordCount: "#words .count"
+      charCount: ".chars .count"
+      wordCount: ".words .count"
       clear: ".clear"
 
 
