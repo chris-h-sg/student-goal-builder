@@ -9,3 +9,4 @@ define [
       top: "#top-nav .dynamic"
       content: "#content"
       result: "#result"
+      social: "#social"

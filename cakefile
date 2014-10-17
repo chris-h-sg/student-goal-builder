@@ -1,4 +1,4 @@
-VERSION = '1.1'
+VERSION = '1.2'
 r = require './lib/r.js'
 fs = require 'fs'
 
@@ -38,6 +38,10 @@ task 'merge', merge = (free = false) ->
   bootstrapCss = fs.readFileSync('css/bootstrap.min.css').toString()
   localCss = fs.readFileSync('build/style.css').toString()
   script = fs.readFileSync('build/script.js').toString()
+  storeUrl = if free then \
+      "http://www.teacherspayteachers.com/Product/Student-Report-Writer-basic-Report-writing-made-easy-1481711" \
+      else "http://www.teacherspayteachers.com/Product/Student-Report-Writer-full-Report-writing-made-easy-1481716"
+  script = script.replace "STORE_URL", storeUrl
   out = raw.replace /<style><\/style>/, "<style>#{bootstrapCss}#{localCss}</style>"
   parts = out.split "<script></script>"
   out = parts[0] + "<script>" + script + "</script>" + parts[1]

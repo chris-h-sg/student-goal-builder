@@ -110,6 +110,30 @@ body {
     font-weight: normal;
 }
 
+#social {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding-bottom: 1em;
+    padding-right: 1em;
+}
+
+#social .buttons > * {
+    display: inline-block;
+    vertical-align: bottom !important;
+    margin-left: 1em !important;
+    font-size: inherit !important;
+}
+
+#social a.twitter-share-button, #social .g-plusone {
+    display: none;
+}
+
+#social .fb-like * {
+    height: 61px !important;
+    width: 48px !important;
+}
+
 [data-toggle=modal]:focus{
     outline:none;
 }
@@ -147,16 +171,3 @@ body {
 #help li:last-child {
     margin: 0;
 }
-
-/*.navbar {*/
-    /*background-color: #d9edf7;*/
-/*}*/
-/*.panel-default>.panel-heading {*/
-    /*background-color: #d9edf7;*/
-/*}*/
-/*.panel-info>.panel-heading {*/
-    /*background-color: #FFC16E;*/
-/*}*/
-/*.list-group-item-info {*/
-    /*background-color: #FFC16E;*/
-/*}*/

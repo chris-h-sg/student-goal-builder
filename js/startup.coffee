@@ -8,8 +8,9 @@ define [
   "cs!ContentTree"
   "cs!ResultView"
   "cs!Controller"
+  "cs!SocialView"
   "text!../data/texts.json"
-], (Handlebars, Marionette, Bootstrap, MainLayout, Categories, TopNavView, ContentTree, ResultView, Controller, texts) ->
+], (Handlebars, Marionette, Bootstrap, MainLayout, Categories, TopNavView, ContentTree, ResultView, Controller, SocialView, texts) ->
   # Each block below does a specific configuration change. The application is started at the bottom.
 
 
@@ -52,6 +53,7 @@ define [
     layout.top.show new TopNavView collection: cats
     layout.content.show content
     layout.result.show result
+    layout.social.show new SocialView()
 
     new Controller content: content, result: result
 
