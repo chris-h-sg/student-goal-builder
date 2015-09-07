@@ -1,4 +1,4 @@
-VERSION = '1.2'
+VERSION = '1.0'
 r = require './lib/r.js'
 fs = require 'fs'
 
@@ -39,14 +39,14 @@ task 'merge', merge = (free = false) ->
   localCss = fs.readFileSync('build/style.css').toString()
   script = fs.readFileSync('build/script.js').toString()
   storeUrl = if free then \
-      "http://www.teacherspayteachers.com/Product/Student-Report-Writer-basic-Report-writing-made-easy-1481711" \
-      else "http://www.teacherspayteachers.com/Product/Student-Report-Writer-full-Report-writing-made-easy-1481716"
+      "http://www.teacherspayteachers.com/Product/Student-Goal-Writer-basic-Goal-writing-made-easy-1481711" \
+      else "http://www.teacherspayteachers.com/Product/Student-Goal-Writer-full-Goal-writing-made-easy-1481716"
   script = script.replace "STORE_URL", storeUrl
   out = raw.replace /<style><\/style>/, "<style>#{bootstrapCss}#{localCss}</style>"
   parts = out.split "<script></script>"
   out = parts[0] + "<script>" + script + "</script>" + parts[1]
-  fs.writeFileSync "build/report-writer#{if free then '-free' else ''}-#{VERSION}.html", out, encoding: 'UTF8'
-  fs.writeFileSync "build/report-writer#{if free then '-free' else ''}.html", out, encoding: 'UTF8'
+  fs.writeFileSync "build/goal-writer#{if free then '-free' else ''}-#{VERSION}.html", out, encoding: 'UTF8'
+  fs.writeFileSync "build/goal-writer#{if free then '-free' else ''}.html", out, encoding: 'UTF8'
 
 
 task 'build', build = (callback) ->
